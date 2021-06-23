@@ -1,0 +1,30 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@using Microsoft.AspNetCore.Http
+@using System.Text.Json
+@model Cliente
+
+@{ string json = HttpContextAccessor.HttpContext.Session.GetString("user");
+    if (json != null)
+    {
+        Cliente user = JsonSerializer.Deserialize<Cliente>(json);
+
+        if (user.IdCliente == 3)
+
+        {
+    <div class="container">
+        <h2>Deletar Usuario</h2>
+        <div class="form-group">
+            <label>Cliente</label>
+            <select asp-for="IdCliente">
+                @foreach (var cliente in ViewBag.Clientes)
+                {
+                    <option value="@cliente.IdCliente">@cliente.Nome</option>
+                }
+            </select>
+        </div>
+        <button class="btn btn-primary" asp-controller="Cliente" asp-action="Delete">Finalizar Compra</button>
+        </div>
+        }
+
+        }
+    }

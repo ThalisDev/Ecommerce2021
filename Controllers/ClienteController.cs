@@ -102,6 +102,8 @@ namespace Ecommerce2021a.Controllers
             using (var data = new ClienteData())
                 data.Delete(id);
 
+            HttpContext.Session.Remove("user");
+
             return RedirectToAction("Index");
         }
 
