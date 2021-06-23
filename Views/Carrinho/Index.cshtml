@@ -1,0 +1,109 @@
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@using Microsoft.AspNetCore.Http
+@using System.Text.Json
+@model Pedido
+
+@if (Model.Itens.Count <= 0)
+{
+    <div class="container-fluid mt-100">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Carrinho</h5>
+                    </div>
+                    <div class="card-body cart">
+                        <div class="col-sm-12 empty-cart-cls text-center">
+                            <img src="https://media.giphy.com/media/TdwziQPhbNAzK/giphy.gif" width="300" height="250">
+                            <h3><strong>Ah não! :(</strong></h3>
+                            <h4>Seu Carrinho está vazio, peça algo agora mesmo!</h4>
+                            <a href="/produto/index"
+                             class="btn btn-primary cart-btn-transform m-3" data-abc="true">
+                              Cala boca e pega meu
+                              dinheiro!
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    }else
+{
+    <form action="." method="post">
+        <div class="container-fluid mt-100">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Carrinho</h5>
+                        </div>
+                        <div>
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>Descrição</th>
+                                    <th>Valor</th>
+                                    <th>Quantidade</th>
+                                    <th>Total</th>
+                                </tr>
+                                @foreach (var item in Model.Itens)
+                                {
+                                    <tr>
+                                        <td>@item.Produto.IdProduto</td>
+                                        <td>@item.Produto.Nome</td>
+                                        <td>@item.Produto.Descricao</td>
+                                        <td>@item.Produto.Valor</td>
+                                        <td>@item.Quantidade</td>
+                                        <td>@item.ValorTotal</td>
+                                        <td>
+                                            <a class="btn btn-sm btn-danger" href="/carrinho/remover/@item.Produto.IdProduto"
+                                               onclick="removercarrinho()">Remover do Carrinho</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                    @{ string json = HttpContextAccessor.HttpContext.Session.GetString("user");
+
+                        if (json != null)
+                        {
+                            Cliente user = JsonSerializer.Deserialize<Cliente>(json);
+
+                            if (user != null)
+                            {
+                                <button action="submit" class="btn btn-info cart-btn-transform mt-2 float-left m-2" 
+                                asp-controller="Carrinho" asp-action="Finalizar">Finalizar Compra</button>
+                            }
+
+                        }
+                        else
+                        {
+                            <button class="btn btn-info cart-btn-transform mt-2 float-left m-2" 
+                            onclick="alerta_login()" asp-controller="Cliente" asp-action="Login">Finalizar Compra</button>
+                        }
+
+                    }
+                    <a href="/produto/index" class="btn btn-info cart-btn-transform mt-2 float-right m-2" data-abc="true">
+                        Continuar
+                        Comprando
+                    </a>
+                </div>
+            </div>
+        </div>
+    </form>
+}
+
+<script>
+    function alerta_login() {
+        alert("você precisa estar logado para comprar!");
+    }
+</script>
+
+<script>
+    function removercarrinho() {
+        alert("Item Removido Com Sucesso!");
+    }
+</script>

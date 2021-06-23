@@ -1,0 +1,28 @@
+﻿@model Cliente
+<div class="container">
+    <div class="text-center">
+        <h2>Cadastre-se Jovem Guru!</h2>
+        <img src="https://media.giphy.com/media/khYLMe7y55p3W/giphy.gif" width="250" height="200" class="rounded-circle">
+    </div>
+    <form asp-controller="Cliente" asp-action="Create" method="post">
+        <div class="form-group">
+            <label asp-for="Nome"></label>
+            <input asp-for="Nome" class="form-control" />
+            <span asp-validation-for="Nome"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Senha"></label>
+            <input asp-for="Senha" class="form-control" />
+            <span asp-validation-for="Senha"></span>
+        </div>
+
+        <button class="btn btn-primary">Cadastrar</button>
+    </form>
+</div>

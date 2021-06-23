@@ -1,0 +1,17 @@
+﻿@model ErrorViewModel
+@{ ViewData["Title"] = "Error"; }
+
+<div class="container alig">
+    <h1 class="text-danger">AAAH NÃO!</h1>
+    <h2 class="text-danger">Um erro Aconteceu ao processar a sua requisição.</h2>
+
+    @if (Model.ShowRequestId)
+    {
+        <p>
+            <strong>Request ID:</strong> <code>@Model.RequestId</code>
+        </p>
+    }
+
+    <h2>OOOOOOPS!!!</h2>
+    <img src="https://media.giphy.com/media/LqgNjv1DB7Dob4hcVb/giphy.gif" width="400" height="400">
+</div>

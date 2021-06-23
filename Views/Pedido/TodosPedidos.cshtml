@@ -1,0 +1,54 @@
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@using Microsoft.AspNetCore.Http
+@using System.Text.Json
+@model List<Pedido>
+<div class="container">
+    <img src="https://media.giphy.com/media/xUOxeSXjqTCTzkq40w/giphy.gif" width="200" height="200" class="rounded-circle">
+    <h2>Meus Pedidos</h2>
+
+    <table class="table table-hover">
+        <tr>
+            <td>Id do Pedido</td>
+            <td>Data e Hora do Pedido</td>
+            <td>Id do Cliente</td>
+            <td>Opções</td>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+        <tr>
+    @{ string json2 = HttpContextAccessor.HttpContext.Session.GetString("user");
+        if (json2 != null)
+        {
+            Cliente user = JsonSerializer.Deserialize<Cliente>(json2);
+
+            if (item.IdCliente == user.IdCliente || user.IdCliente == 3)
+            {
+                <td>#@item.IdPedido</td>
+                <td>@item.Data</td>
+                <td>@item.IdCliente</td>
+                <td>
+                   <a class="btn btn-sm btn-info" href="/item/index/@item.IdPedido">Visualizar Itens</a>
+                </td>
+            }
+        }
+    }
+
+        @{ string json = HttpContextAccessor.HttpContext.Session.GetString("user");
+            if (json != null)
+            {
+                Cliente user = JsonSerializer.Deserialize<Cliente>(json);
+
+                if (user.IdCliente == 3)
+                {
+                    <td><a class="btn btn-sm btn-danger" href="/produto/Delete_Pedido/@item.IdPedido">Apagar</a></td>
+                }
+
+            }
+
+         }
+    </tr>
+            }
+    </table>
+</div>

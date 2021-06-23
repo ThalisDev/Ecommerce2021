@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Ecommerce Thalis</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
+    <!-- Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <!-- SimpleLightbox plugin CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/css/styles.css" rel="stylesheet" />
+</head>
+<body id="page-top">
+    <!--NAV-->
+    @{ ViewData["Title"] = "Home Page"; }
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-8 align-self-end">
+                    <h1 class="text-white font-weight-bold">Seu E-commerce Favorito bem aqui!</h1>
+                    <hr class="divider" />
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <p class="text-white-75 mb-5">Seus produtos e itens favoritos todos no nosso marketplace, não perca e comece a comprar agora mesmo!</p>
+                    <a class="btn btn-primary btn-xl" href="#about">Saiba Mais</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- About-->
+    <section class="page-section bg-primary" id="about">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="text-white mt-0">Nós temos o que você precisa!</h2>
+                    <hr class="divider divider-light" />
+                    <p class="text-white-75 mb-4">Temos todos os artigos que voce busca separados aqui!</p>
+                    <a class="btn btn-light btn-xl" asp-controller="Produto" asp-action="Index">Vamos começar!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services-->
+    <section class="page-section" id="services">
+        <div class="container px-4 px-lg-5">
+            <h2 class="text-center mt-0">Categorias</h2>
+            <hr class="divider" />
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
+                        <h3 class="h4 mb-2">Bijuterias</h3>
+                        <p class="text-muted mb-0">Varias bijuterias para voce ficar sempre na moda!</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
+                        <h3 class="h4 mb-2">Informatica</h3>
+                        <p class="text-muted mb-0">Tudo que voce precisa em informatica bem aqui.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
+                        <h3 class="h4 mb-2">Logistica</h3>
+                        <p class="text-muted mb-0">Entregamos para todo o país e de forma eficiente!</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
+                        <h3 class="h4 mb-2">Feito com Amor</h3>
+                        <p class="text-muted mb-0">Nós cuidamos da sua encomenda com muito amor!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio-->
+    <div id="portfolio">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="/images/portfolio/fullsize/1.jpg" title="Artigos Para toda a casa">
+                        <img class="img-fluid" src="/images/portfolio/thumbnails/1.jpg" alt="..." />
+                        <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Categoria</div>
+                            <div class="project-name">Artigos Para toda a casa</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="a/images/portfolio/fullsize/2.jpg" title="Literatura">
+                        <img class="img-fluid" src="/images/portfolio/thumbnails/2.jpg" alt="..." />
+                        <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Categoria</div>
+                            <div class="project-name">Literatura</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="/images/portfolio/fullsize/3.jpg" title="AudioVisual">
+                        <img class="img-fluid" src="/images/portfolio/thumbnails/3.jpg" alt="..." />
+                        <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Categoria</div>
+                            <div class="project-name">AudioVisual</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="/images/portfolio/fullsize/4.jpg" title="artigos para cozinha">
+                        <img class="img-fluid" src="/images/portfolio/thumbnails/4.jpg" alt="..." />
+                        <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Categoria</div>
+                            <div class="project-name">artigos para cozinha</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="/images/portfolio/fullsize/5.jpg" title="Artigos para Construção">
+                        <img class="img-fluid" src="/images/portfolio/thumbnails/5.jpg" alt="..." />
+                        <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Categoria</div>
+                            <div class="project-name">Artigos para Construção</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="/images/portfolio/fullsize/6.jpg" title="Ferrramentas">
+                        <img class="img-fluid" src="/images/portfolio/thumbnails/6.jpg" alt="..." />
+                        <div class="portfolio-box-caption p-3">
+                            <div class="project-category text-white-50">Categoria</div>
+                            <div class="project-name">Ferrramentas</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Call to action-->
+    <section class="page-section bg-dark text-white">
+        <div class="container px-4 px-lg-5 text-center">
+            <h2 class="mb-4">Faça seu cadastro Agora!</h2>
+            <a class="btn btn-light btn-xl" asp-controller="Cliente" asp-action="Create">Cadastre-se</a>
+        </div>
+    </section>
+    <!-- Contact-->
+    <section class="page-section" id="contact">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 col-xl-6 text-center">
+                    <h2 class="mt-0">Fale conosco</h2>
+                    <hr class="divider" />
+                    <p class="text-muted mb-5">Preencha o formulario e conte suas experiencias!</p>
+                </div>
+            </div>
+            <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+                <div class="col-lg-6">
+                    <form>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="inputName" type="text" placeholder="Escreva seu nome!" />
+                            <label for="inputName">Nome completo</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
+                            <label for="inputEmail">Email</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="inputPhone" type="tel" placeholder="(17)0000-0000" />
+                            <label for="inputPhone">Celular</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" id="inputMessage" type="text" placeholder="Digite sua opinião aqui" style="height: 10rem"></textarea>
+                            <label for="inputMessage">Mensagem</label>
+                        </div>
+                        <div class="d-grid"><button class="btn btn-primary btn-xl" type="submit">Enviar</button></div>
+                    </form>
+                </div>
+            </div>
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-4 text-center mb-5 mb-lg-0">
+                    <i class="bi-phone fs-2 mb-3 text-muted"></i>
+                    <div>+55 (xx) 9xxx-xxxx</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="bg-light py-5">
+        <div class="container px-4 px-lg-5">
+            <div class="small text-center text-muted">
+                <div class="container">
+                    &copy; 2021 - Ecommerce Thalis - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SimpleLightbox plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="/js/scripts.js"></script>
+</body>
+</html>

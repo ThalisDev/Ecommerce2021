@@ -1,0 +1,94 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@using Microsoft.AspNetCore.Http
+@using System.Text.Json
+@model List<Produto>
+
+@{ ViewData["Title"] = "Produto - Index"; }
+<div class="container">
+    @{ string json = HttpContextAccessor.HttpContext.Session.GetString("user");
+
+        if (json == null)
+        {
+<img src="https://media.giphy.com/media/qVJDUpdAHqItG/giphy.gif" width="120" height="120" class="rounded-circle">
+                <h2>Produtos</h2>
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nome</th>
+                                        <th>Descrição</th>
+                                        <th>Valor</th>
+                                        <th>Categoria</th>
+                                    </tr>
+                                    @foreach (var prod in Model)
+                                    {
+                    <tr>
+                        <td>@prod.IdProduto</td>
+                        <td>@prod.Nome</td>
+                        <td>@prod.Descricao</td>
+                        <td>@prod.Valor</td>
+                        <td>@prod.Categoria</td>
+                        <td>
+                            <a class="btn btn-sm btn-info" href="/carrinho/comprar/@prod.IdProduto">Comprar</a>
+                        </td>
+                    </tr>}
+                                </table> }
+
+                            else
+                            {
+                                Cliente user = JsonSerializer.Deserialize<Cliente>(json);
+
+                                if (user.IdCliente == 3)
+                                {
+                <table class="table table-hover">
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Categoria</th>
+                    </tr>
+                    @foreach (var prod in Model)
+                    {
+<tr>
+    <td>@prod.IdProduto</td>
+    <td>@prod.Nome</td>
+    <td>@prod.Descricao</td>
+    <td>@prod.Valor</td>
+    <td>@prod.Categoria</td>
+    <td>
+        <a class="btn btn-sm btn-danger" href="/produto/delete/@prod.IdProduto" onclick="removidoBox()">Apagar</a>
+        <a class="btn btn-sm btn-warning" href="/produto/update/@prod.IdProduto">Editar</a>
+    </td>
+</tr>}
+                </table>
+
+                                    <a class="btn btn-primary" href="/produto/create">Adcionar</a> }
+
+                                else
+                                {
+                <table class="table table-hover">
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Categoria</th>
+                    </tr>
+                    @foreach (var prod in Model)
+
+                    {
+<tr>
+    <td>@prod.IdProduto</td>
+    <td>@prod.Nome</td>
+    <td>@prod.Descricao</td>
+    <td>@prod.Valor</td>
+    <td>@prod.Categoria</td>
+    <td>
+        <a class="btn btn-sm btn-info" href="/carrinho/comprar/@prod.IdProduto">Comprar</a>
+    </td>
+</tr>}
+                </table> }
+        } }
+</div>

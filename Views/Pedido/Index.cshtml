@@ -1,0 +1,25 @@
+@model List<Pedido>
+<div class="container">
+    <img src="https://media.giphy.com/media/ADgfsbHcS62Jy/giphy.gif" width="120" height="120" class="rounded-circle">
+    <h2>Meus Pedidos</h2>
+
+    <table class="table table-hover">
+        <tr>
+            <td>Id do Pedido</td>
+            <td>Data e Hora do Pedido</td>
+            <td>Id do Cliente</td>
+            <td>Opções</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>#@item.IdPedido</td>
+                <td>@item.Data</td>
+                <td>@item.IdCliente</td>
+                <td>
+                    <a class="btn btn-sm btn-info" href="/item/index/@item.IdPedido">Visualizar</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

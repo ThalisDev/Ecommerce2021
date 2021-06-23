@@ -1,0 +1,28 @@
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@using Microsoft.AspNetCore.Http
+@using System.Text.Json
+@model List<Item>
+
+<div class="container">
+    <img src="https://media.giphy.com/media/ADgfsbHcS62Jy/giphy.gif" width="120" height="120" class="rounded-circle">
+    <h2>Itens da Compra</h2>
+    <table class="table table-hover">
+        <tr>
+            <td>Id do Pedido</td>
+            <td>Nome do Produto</td>
+            <td>Quantidade</td>
+            <td>Valor</td>
+            <td>Valor Total</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>@item.IdPedido</td>
+    <td>@item.Produto.Nome</td>
+    <td>@item.Quantidade</td>
+    <td>@item.Valor</td>
+    <td>@item.ValorTotal</td>
+</tr>
+}
+    </table>
+</div>
