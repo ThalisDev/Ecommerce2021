@@ -1,2 +1,2 @@
-# Ecommerce2021A-Thalis
-Projeto usando C# web padrão MVC para criação de um E-commerce
+# Projeto Ecommerce em C#
+- pode ser visualizado em: https://thalisdev.github.io/Ecommerce2021/
