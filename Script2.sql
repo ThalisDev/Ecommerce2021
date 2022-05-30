@@ -19,7 +19,7 @@ create table Produto
     IdCategoria INT             references Categoria (IdCategoria), -- FK
 )
 
-insert into Categoria values('Informática')
+insert into Categoria values('Informatica')
 insert into Categoria values('Brinquedos')
 
 select * from Categoria
